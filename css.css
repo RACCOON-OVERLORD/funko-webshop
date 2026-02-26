@@ -1,0 +1,272 @@
+/* Funko Pop Website - Compacte CSS */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&family=Roboto:wght@300;500;700&display=swap');
+
+:root {
+    --funko-blue: #0B4F6C;
+    --funko-yellow: #FFD23F;
+    --funko-red: #E74C3C;
+    --funko-green: #2ECC71;
+    --funko-purple: #9B59B6;
+    --funko-white: #FFFFFF;
+    --funko-black: #2C3E50;
+    --funko-gray: #95A5A6;
+    --funko-light: #ECF0F1;
+    --pop-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+/* Reset & Base */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    background: linear-gradient(135deg, var(--funko-light) 0%, #D5DBDB 100%);
+    color: var(--funko-black);
+}
+
+/* Header */
+.header {
+    background: linear-gradient(135deg, var(--funko-blue), #1B4F72);
+    color: white;
+    padding: 20px;
+    box-shadow: var(--pop-shadow);
+}
+.header-container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; }
+.logo {
+    font-family: 'Fredoka One', cursive;
+    font-size: 2.2rem;
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 0 var(--funko-yellow);
+    transition: transform 0.3s;
+}
+.logo:hover { transform: scale(1.05) rotate(-2deg); }
+
+/* Navigation */
+.user-info { display: flex; gap: 15px; }
+.user-info a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    background: rgba(255,255,255,0.2);
+    font-family: 'Fredoka One', cursive;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    transition: all 0.3s;
+}
+.user-info a:hover {
+    background: var(--funko-yellow);
+    color: var(--funko-blue);
+    transform: translateY(-3px);
+}
+
+/* Container */
+.container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+
+/* Cards */
+.card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: var(--pop-shadow);
+    border: 3px solid var(--funko-yellow);
+    margin: 20px auto;
+    transition: all 0.3s;
+}
+.card:hover { transform: translateY(-5px); box-shadow: 0 12px 24px rgba(0,0,0,0.3); }
+.card-header {
+    background: linear-gradient(135deg, var(--funko-red), #C0392B);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+.card-header h1 {
+    font-family: 'Fredoka One', cursive;
+    text-transform: uppercase;
+    font-size: 1.8rem;
+}
+.card-body { padding: 25px; }
+
+/* Product Grid */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+/* Product Cards */
+.product-card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: var(--pop-shadow);
+    border: 3px solid var(--funko-light);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+}
+.product-card:hover {
+    transform: translateY(-10px) rotateY(3deg);
+    border-color: var(--funko-yellow);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+}
+
+/* Product Image */
+.product-image {
+    height: 250px;
+    background: linear-gradient(135deg, var(--funko-light), #D5DBDB);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 20px 20px 0 0;
+}
+.product-image img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    transition: transform 0.3s;
+}
+.product-card:hover .product-image img { transform: scale(1.1) rotate(3deg); }
+.no-image {
+    background: var(--funko-yellow);
+    color: white;
+    font-size: 3rem;
+    font-family: 'Fredoka One', cursive;
+}
+
+/* Product Content */
+.product-content { padding: 20px; }
+.product-content h3 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.1rem;
+    color: var(--funko-black);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+.funko-number {
+    background: var(--funko-blue);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-family: 'Fredoka One', cursive;
+    display: inline-block;
+    margin-bottom: 8px;
+}
+.product-price {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.3rem;
+    margin: 12px 0;
+}
+.current-price { color: var(--funko-green); }
+.sale-price { color: var(--funko-red); }
+.original-price { text-decoration: line-through; color: var(--funko-gray); margin-right: 8px; }
+.product-categorie { color: var(--funko-blue); font-weight: 600; font-size: 0.8rem; text-transform: uppercase; }
+.product-serie { color: var(--funko-purple); font-style: italic; }
+
+/* Badges */
+.sale-badge, .exclusive-badge, .vaulted-badge {
+    position: absolute;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-family: 'Fredoka One', cursive;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    z-index: 5;
+}
+.sale-badge { top: 15px; right: 15px; background: var(--funko-yellow); color: var(--funko-black); }
+.exclusive-badge { top: 15px; left: 15px; background: var(--funko-purple); color: white; }
+.vaulted-badge { top: 50px; left: 15px; background: var(--funko-black); color: white; }
+
+/* Buttons */
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: 'Fredoka One', cursive;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    display: inline-block;
+}
+.btn-primary { background: var(--funko-blue); color: white; }
+.btn-secondary { background: var(--funko-gray); color: white; }
+.btn-danger { background: var(--funko-red); color: white; }
+.btn:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 8px 16px rgba(0,0,0,0.3); }
+.btn-block { width: 100%; text-align: center; }
+
+/* Forms */
+.form-group { margin-bottom: 20px; }
+.form-label {
+    display: block;
+    margin-bottom: 8px;
+    font-family: 'Fredoka One', cursive;
+    color: var(--funko-black);
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+.form-control {
+    width: 100%;
+    padding: 15px;
+    border: 3px solid var(--funko-light);
+    border-radius: 15px;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+.form-control:focus { outline: none; border-color: var(--funko-blue); transform: translateY(-2px); }
+
+/* Alerts */
+.alert {
+    padding: 15px 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    font-family: 'Fredoka One', cursive;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    border: 3px solid;
+}
+.alert-danger { background: #FADBD8; color: var(--funko-red); border-color: var(--funko-red); }
+.alert-success { background: #D5F4E6; color: var(--funko-green); border-color: var(--funko-green); }
+
+/* Table */
+.table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--pop-shadow);
+    border: 3px solid var(--funko-yellow);
+}
+.table th, .table td { padding: 15px; border-bottom: 2px solid var(--funko-light); }
+.table th {
+    background: var(--funko-yellow);
+    font-family: 'Fredoka One', cursive;
+    text-transform: uppercase;
+}
+.table tbody tr:hover { background: var(--funko-light); }
+
+/* Animations */
+@keyframes bounce {
+    0%, 20%, 60%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    80% { transform: translateY(-5px); }
+}
+.logo:hover { animation: bounce 0.6s ease-in-out; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header-container { flex-direction: column; gap: 15px; }
+    .products-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+    .container { padding: 15px; }
+    .logo { font-size: 1.8rem; }
+}
+
+@media (max-width: 480px) {
+    .logo { font-size: 1.5rem; }
+    .product-image { height: 200px; }
+    .card-body, .product-content { padding: 15px; }
+}
